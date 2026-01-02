@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Dusun Babadan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #800020 0%, #a0522d 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .header-text h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .header-text p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #800020;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #a0522d;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(128, 0, 32, 0.7), rgba(160, 82, 45, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23d2b48c" width="1200" height="400"/><path fill="%23a0522d" opacity="0.3" d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Section */
+        section {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #800020;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #a0522d;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f5deb3 0%, #deb887 100%);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(128, 0, 32, 0.3);
+        }
+
+        .card h3 {
+            color: #800020;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
+            padding: 20px;
+            border-left: 5px solid #800020;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th {
+            background-color: #800020;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f5deb3;
+        }
+
+        table tr:hover {
+            background-color: #deb887;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #800020 0%, #a0522d 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #f5deb3;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 1.5em;
+            }
+
+            .hero h2 {
+                font-size: 1.8em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">🏘️</div>
+            <div class="header-text">
+                <h1>Dusun Babadan</h1>
+                <p>Desa babadan, Kecamatan Ngajum, Kabupaten Malang</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#visi-misi">Visi & Misi</a></li>
+            <li><a href="#struktur">Struktur Organisasi</a></li>
+            <li><a href="#potensi">Potensi Dusun</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="hero" id="beranda">
+            <h2>Selamat Datang di Website Dusun Babadan</h2>
+            <p>Dusun yang maju, mandiri, dan sejahtera dengan potensi pertanian yang melimpah</p>
+        </div>
+
+        <section id="profil">
+            <h2>Profil Dusun</h2>
+            <div class="info-box">
+                <p><strong>Dusun Babadan</strong> merupakan susun yang terletak di wilayah Kecamatan Ngajum. Dusun ini memiliki potensi alam yang indah dengan mayoritas penduduk bermata pencaharian sebagai petani.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>📍 Lokasi</h3>
+                    <p>Terletak di Kecamatan Ngajum, Kabupaten Malang dengan akses jalan yang mudah dijangkau</p>
+                </div>
+                <div class="card">
+                    <h3>👥 Jumlah Penduduk</h3>
+                    <p>3.500 jiwa yang terdiri dari kurang lebih 300 Kepala Keluarga dengan berbagai latar belakang</p>
+                </div>
+                <div class="card">
+                    <h3>🏛️ Batas Wilayah</h3>
+                    <p>Berbatasan dengan 6 dusun tetangga dan memiliki topografi dataran rendah hingga perbukitan</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="visi-misi">
+            <h2>Visi dan Misi</h2>
+            
+            <div class="info-box">
+                <h3 style="color: #800020; margin-bottom: 10px;">Visi</h3>
+                <p>"Terwujudnya Dusun Sejahtera yang Maju, Mandiri, dan Berkeadilan Berbasis Potensi Lokal"</p>
+            </div>
+
+            <h3 style="color: #800020; margin-top: 30px; margin-bottom: 15px;">Misi</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>1️⃣</h3>
+                    <p>Meningkatkan kualitas sumber daya manusia melalui pendidikan dan pelatihan</p>
+                </div>
+                <div class="card">
+                    <h3>2️⃣</h3>
+                    <p>Mengembangkan potensi ekonomi desa berbasis pertanian dan UMKM</p>
+                </div>
+                <div class="card">
+                    <h3>3️⃣</h3>
+                    <p>Meningkatkan infrastruktur dan fasilitas umum yang memadai</p>
+                </div>
+                <div class="card">
+                    <h3>4️⃣</h3>
+                    <p>Mewujudkan tata kelola pemerintahan dusun yang transparan dan akuntabel</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="struktur">
+            <h2>Struktur Organisasi Dusun</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama</th>
+                        <th>Kontak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kepala Dusun</strong></td>
+                        <td>Bapak Ahmad Hidayat, S.Sos</td>
+                        <td>0812-3456-7890</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RW 5</strong></td>
+                        <td>Ibu Siti Nurhaliza, S.AP</td>
+                        <td>0813-4567-8901</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 1</strong></td>
+                        <td>Bapak Bambang Prasetyo, SE</td>
+                        <td>0814-5678-9012</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 2</strong></td>
+                        <td>Ibu Dewi Lestari, S.Sos</td>
+                        <td>0815-6789-0123</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 3</strong></td>
+                        <td>Bapak Joko Widodo, S.IP</td>
+                        <td>0816-7890-1234</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 4</strong></td>
+                        <td>Ibu Rina Kartika, S.Sos</td>
+                        <td>0817-8901-2345</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 5</strong></td>
+                        <td>Bapak Andi Setiawan, S.Kom</td>
+                        <td>0818-9012-3456</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 6</strong></td>
+                        <td>Bapak Andi Setiawan, S.Kom</td>
+                        <td>0818-9012-3456</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 7</strong></td>
+                        <td>Bapak Andi Setiawan, S.Kom</td>
+                        <td>0818-9012-3456</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RT 8</strong></td>
+                        <td>Bapak Andi Setiawan, S.Kom</td>
+                        <td>0818-9012-3456</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="potensi">
+            <h2>Potensi Desa</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>🌾 Pertanian</h3>
+                    <p>Lahan pertanian seluas 200 hektar dengan komoditas utama tebu dan kopi yang berkualitas tinggi</p>
+                </div>
+                <div class="card">
+                    <h3>🐄 Peternakan</h3>
+                    <p>Peternakan sapi, kambing, dan ayam kampung dengan sistem pembibitan yang modern dan berkelanjutan</p>
+                </div>
+                <div class="card">
+                    <h3>🏭 UMKM</h3>
+                    <p>Berbagai usaha kecil menengah seperti produk lokal berkualitas</p>
+                </div>
+                <div class="card">
+                    <h3>💧 Sumber Air</h3>
+                    <p>Sumber mata air alami yang melimpah untuk kebutuhan pertanian dan konsumsi masyarakat</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri">
+            <h2>Galeri Dusun</h2>
+            <p style="margin-bottom: 20px;">Dokumentasi kegiatan dan keindahan Dusun Babadan</p>
+            
+            <div class="grid">
+                <div class="card" style="background: linear-gradient(135deg, #800020 0%, #a0522d 100%); color: white; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">📸</div>
+                        <h3 style="color: white;">Kegiatan Dusun</h3>
+                    </div>
+                </div>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #cd853f 0%, #deb887 100%); color: #800020; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">🌾</div>
+                        <h3>Pertanian</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak">
+            <h2>Hubungi Kami</h2>
+            
+            <div class="info-box">
+                <h3 style="color: #800020; margin-bottom: 15px;">Kantor Dusun Babadan</h3>
+                <p><strong>📍 Alamat:</strong> Jl. Babadan, Desa Babadan, Kec. Ngajum, Kab. Malang</p>
+                <p><strong>📞 Telepon:</strong> (0274) 123-4567</p>
+                <p><strong>📧 Email:</strong> info@dusunbabadan.go.id</p>
+            </div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="font-size: 1.1em; color: #800020;">Ikuti Media Sosial Kami:</p>
+                <div style="margin-top: 15px;">
+                    <a href="#" style="color: #800020; text-decoration: none; margin: 0 15px; font-size: 1.2em;">📘 Facebook</a>
+                    <a href="#" style="color: #800020; text-decoration: none; margin: 0 15px; font-size: 1.2em;">📷 Instagram</a>
+                    <a href="#" style="color: #800020; text-decoration: none; margin: 0 15px; font-size: 1.2em;">▶️ YouTube</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dusun Babadan. Semua Hak Dilindungi.</p>
+        <p>Website Resmi Dusun Babadan</p>
+        <p>Dibuat dengan ❤️ untuk kemajuan desa</p>
+    </footer>
+</body>
+</html> 
